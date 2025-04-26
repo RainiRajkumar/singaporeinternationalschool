@@ -1,5 +1,5 @@
-:root {
-    /* Colors & Timing */
+ 
+  :root {
     --color-bg: #ecf0f1;
     --color-primary: #2c3e50;
     --color-secondary: #1abc9c;
@@ -8,7 +8,7 @@
     --color-dark: #34495e;
     --transition-speed: 0.3s ease;
   }
-  
+  /* === Reset & Base === */
   *,
   *::before,
   *::after {
@@ -16,21 +16,42 @@
     margin: 0;
     padding: 0;
   }
-  
-  html {
-    scroll-behavior: smooth;
-  }
-  
   body {
     font-family: 'Open Sans', sans-serif;
-    background: var(--color-bg);
-    color: var(--color-dark);
-    line-height: 1.6;
+    color: var(--nav-text);
+    line-height: 1.5;
+  }
+  a {
+    text-decoration: none;
+    color: inherit;
   }
   
-  /* ==============================
-     HEADER & NAV
-     ============================== */
+  /* === Top Bar === */
+  .top-bar {
+    background: #2b95cf;
+    color: whitesmoke;
+    font-size: 0.8rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.2rem 1rem;
+  }
+  .top-bar a {
+    color: var(--topbar-color);
+    transition: opacity var(--transition);
+  }
+  .top-bar a:hover {
+    opacity: 0.7;
+  }
+  .social-links a {
+    margin: 0 0.5rem;
+    font-size: 1.1rem;
+  }
+  .social-links a:hover {
+    color: var(--nav-accent);
+  }
+  
+  /* === Header & Nav === */
   .header {
     position: sticky;
     top: 0;
@@ -39,47 +60,75 @@
     backdrop-filter: blur(10px);
     z-index: 1000;
     transition: background var(--transition-speed);
+    font-family: 'Poppins', sans-serif;
   }
-  
   .nav-container {
-    max-width: 1200px;
-    margin: auto;
+    background: var(--nav-bg);
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 1rem;
+    padding: 0.75rem 1rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   }
-  
   .logo {
-    font-family: 'Poppins', sans-serif;
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--color-primary);
-    cursor: pointer;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
   }
   
-  /* Menu Links */
+  /* Logo Image */
+  .logo-img {
+    width: 40px;            /* adjust as needed */
+    height: auto;
+    margin-right: 0.75rem;  /* space between image and text */
+  }
+  
+  /* Logo Text */
+  .logo-text {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.25rem;     /* a bit smaller on narrow screens below */
+    font-weight: 700;
+    color: var(--nav-text);
+  }
+
+
+  .logo-sub{
+    font-size: 0.6rem;
+    display: flex;
+    justify-content: center;
+  }
+  
+  /* Responsive tweak */
+  @media (max-width: 768px) {
+    .logo-img {
+      width: 32px;
+      margin-right: 0;
+    }
+    .logo-text {
+      display: none;
+    }
+    .hamburger {
+      display: flex;
+      margin-left: auto;    /* pushes it to the right */
+    }
+  }
+  
   .nav-menu {
     list-style: none;
     display: flex;
     gap: 1.5rem;
-    transition: max-height var(--transition-speed);
   }
-  
   .nav-menu a {
-    text-decoration: none;
-    color: var(--color-dark);
+    font-weight: 600;
     padding: 0.5rem;
-    transition: color var(--transition-speed);
+    transition: color var(--transition);
   }
-  
   .nav-menu a:hover {
-    color: var(--color-secondary);
+    color: #2b95cf;
   }
   
-  /* Hamburger */
   .hamburger {
-    display: none; /* shown only on mobile */
+    display: none;
     flex-direction: column;
     justify-content: space-between;
     width: 24px;
@@ -88,30 +137,78 @@
     border: none;
     cursor: pointer;
     padding: 0;
-    z-index: 1100;
   }
-  
   .hamburger span {
     display: block;
     height: 3px;
-    background: var(--color-primary);
+    background: var(--nav-text);
     border-radius: 2px;
-    transition: transform var(--transition-speed), opacity var(--transition-speed);
+    transition: transform var(--transition), opacity var(--transition);
   }
   
-  /* ==============================
-     HERO
-     ============================== */
+  /* === Responsive ≤768px === */
+  @media (max-width: 768px) {
+    /* Top-bar wraps */
+    .top-bar {
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      text-align: center;
+    }
+  
+    /* Show hamburger, hide desktop links */
+    .hamburger {
+      display: flex;
+    }
+    .nav-menu {
+      position: absolute;
+      top: calc(100% + 0.25rem);
+      left: 0;
+      right: 0;
+      background: rgb(243, 240, 240);
+      flex-direction: column;
+      overflow: hidden;
+      max-height: 0;
+      box-shadow: 0 4px 8px rgba(228, 221, 221, 0.1);
+      transition: max-height var(--transition);
+    }
+    .nav-menu.open {
+      max-height: 250px; /* tweak if you add more items */
+    }
+    .nav-menu li {
+      border-top: 1px solid rgba(0,0,0,0.05);
+    }
+    .nav-menu a {
+      display: block;
+      padding: 0.1rem 1rem;
+      font-size: 0.75rem; /* smaller for mobile */
+    }
+  
+    /* Hamburger → X animation */
+    .hamburger.active span:nth-child(1) {
+      transform: translateY(8.5px) rotate(45deg);
+    }
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+    .hamburger.active span:nth-child(3) {
+      transform: translateY(-8.5px) rotate(-45deg);
+    }
+  }
+  
+
+
+  /* Hero*/
   .hero {
     height: 85vh;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    background: linear-gradient(135deg, #2b95cf, var(--color-secondary));
     color: var(--color-light);
     position: relative;
     overflow: hidden;
+    font-family: 'Poppins', sans-serif;
   }
   
   .hero::before {
@@ -152,9 +249,6 @@
     to   { opacity: 1; transform: translateY(0); }
   }
   
-  /* ==============================
-     BUTTONS
-     ============================== */
   .btn {
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
@@ -175,9 +269,6 @@
     box-shadow: 0 8px 16px rgba(0,0,0,0.2);
   }
   
-  /* ==============================
-     COURSES GRID
-     ============================== */
   .courses {
     padding: 4rem 1rem;
     max-width: 1200px;
@@ -217,10 +308,9 @@
   
   .course-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+    box-shadow: 0 12px 24px rgba(136, 181, 223, 0.1);
   }
   
-  /* SECTION TITLES & FOOTER */
   section h2 {
     font-family: 'Poppins', sans-serif;
     font-size: 1.75rem;
@@ -236,35 +326,3 @@
     color: var(--color-light);
     font-size: 0.9rem;
   }
-  
-  /* ==============================
-     RESPONSIVE (≤768px)
-     ============================== */
-  @media (max-width: 768px) {
-    .hero-content h1 { font-size: 2rem; }
-  
-    /* show hamburger, hide nav */
-    .hamburger { display: flex; }
-    .nav-menu {
-      position: absolute;
-      top: 100%; left: 0; right: 0;
-      background: var(--color-light);
-      flex-direction: column;
-      overflow: hidden;
-      max-height: 0;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    }
-    .nav-menu.open { max-height: 400px; } /* adjust if you add more links */
-    .nav-menu li { border-top: 1px solid rgba(0,0,0,0.05); }
-    .nav-menu a { display: block; padding: 1rem 1.5rem; }
-  
-    /* hamburger → X */
-    .hamburger.active span:nth-child(1) {
-      transform: translateY(8.5px) rotate(45deg);
-    }
-    .hamburger.active span:nth-child(2) { opacity: 0; }
-    .hamburger.active span:nth-child(3) {
-      transform: translateY(-8.5px) rotate(-45deg);
-    }
-  }
-  

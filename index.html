@@ -1,57 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>EduMaster - Transform Your Future</title>
-    
+
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Open+Sans&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="index.css">
-</head>
-<body>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Open+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
     <!-- Header -->
     <header class="header">
-        <nav class="nav-container">
-            <div class="logo">Singapore International School</div>
-            <button class="hamburger" aria-label="Toggle menu">
-                <span></span>
-                <span></span>
-                <span></span>
-              </button>
-            <ul class="nav-menu">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#courses">Courses</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
+        <div class="top-bar">
+            <a href="mailto:vnkisps@gmail.com" class="top-link" rel="noopener">vnkisps@gmail.com</a>
+            <div class="social-links">
+                <a href="#" aria-label="Facebook" target="_blank"
+                  ><i class="fab fa-facebook-f"></i
+                ></a>
+                <a href="#" aria-label="Twitter" target="_blank"
+                  ><i class="fab fa-twitter"></i
+                ></a>
+                <a href="#" aria-label="Instagram" target="_blank"
+                  ><i class="fab fa-instagram"></i
+                ></a>
+                <a href="#" aria-label="LinkedIn" target="_blank"
+                  ><i class="fab fa-linkedin-in"></i
+                ></a>
+                <a href="#" aria-label="YouTube" target="_blank"
+                  ><i class="fab fa-youtube"></i
+                ></a>
+              </div>
+            <span><i class="fa-solid fa-phone-volume"></i> <a class="top-phone" href="tel:9876543210">+91 7095566881</a> , <a class="top-phone" href="tel:7095566882">+91 7095566882</a></span>
+          </div>
+      <nav class="nav-container">
+        <a href="index.html" class="logo">
+            <img src="https://ispseducation.com/wp-content/uploads/elementor/thumbs/Untitled-design-1-r26gxz2yfnai80cdzn7w5yskmoyicecflvhghad1k0.png" alt="Singapore International School Logo" class="logo-img">
+    <span class="logo-text">SINGAPORE INTERNATIONAL SCHOOL <P class="logo-sub">VINUKONDA</P></span>
+        </a>
+        <button class="hamburger" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <ul class="nav-menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="#aboutus">About Us</a></li>
+          <li><a href="#curriculum">Curriculum</a></li>
+          <li><a href="#facilities">Facilities</a></li>
+          <li><a href="#admissions" onclick="loadPage('Admissions.html')">Admissions</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#contact">Contact Us</a></li>
+        </ul>
+      </nav>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
+    <main id="content">
+      <!-- Hero Section -->
+      <section class="hero">
         <div class="hero-content">
-            <h1>Transform Your Future Through Quality Education</h1>
-            <p>Join thousands of successful students worldwide</p>
-            <button class="btn btn-primary">Explore Courses</button>
+          <h4>NRI's</h4><h1>SINGAPORE INTERNATIONAL SCHOOL</h1>
+          <p>Transform Your Future Through Quality Education</p>
+          <button class="btn btn-primary">Explore Courses</button>
         </div>
-    </section>
+      </section>
 
-    <!-- Featured Courses -->
-    <section class="courses">
+      <!-- Featured Courses -->
+      <section class="courses">
         <div class="course-grid">
-            <!-- Repeat course cards -->
-            <div class="course-card">
-                <h3>Computer Science</h3>
-                <p>Master programming and software development</p>
-                <button class="btn btn-primary">Learn More</button>
-            </div>
-            <!-- Add more course cards -->
+          <!-- Repeat course cards -->
+          <div class="course-card">
+            <h3>Computer Science</h3>
+            <p>Master programming and software development</p>
+            <button class="btn btn-primary">Learn More</button>
+          </div>
+          <div class="course-card">
+            <h3>Computer Science</h3>
+            <p>Master programming and software development</p>
+            <button class="btn btn-primary">Learn More</button>
+          </div>
+          <div class="course-card">
+            <h3>Computer Science</h3>
+            <p>Master programming and software development</p>
+            <button class="btn btn-primary">Learn More</button>
+          </div>
         </div>
-    </section>
+      </section>
+    </main>
 
-    
     <script src="index.js"></script>
-</body>
+  </body>
 </html>

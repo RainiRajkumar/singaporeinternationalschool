@@ -27,3 +27,13 @@ document.addEventListener('DOMContentLoaded', () => {
       btn.classList.toggle('active'); // if you want to animate the icon
     });
   });
+
+  function loadPage(page) {
+    fetch(page)
+      .then((response) => response.text())
+      .then((data) => {
+        document.getElementById("content").innerHTML = data;
+        document.documentElement.scrollTop = 0;
+      })
+      .catch((error) => console.error("Error loading page:", error));
+  }
